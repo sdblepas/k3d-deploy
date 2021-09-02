@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: flask
+  name: pod-flask
+spec:
+  containers:
+  - image: k3d-my-cluster-registry:50785/pod-flask:0.1
+    name: pod-flask
