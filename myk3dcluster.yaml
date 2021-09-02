@@ -9,8 +9,8 @@ kubeAPI:
  hostPort: "6445"
 ports:
  - port: 8080:80 # same as `--port 8080:80@loadbalancer
- nodeFilters:
- - loadbalancer
+   nodeFilters:
+   - loadbalancer
 options:
  k3d: 
    wait: true # wait for cluster to be usable before returining
