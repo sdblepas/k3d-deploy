@@ -1,0 +1,24 @@
+# k3d configuration myk3dcluster.yaml
+apiVersion: k3d.io/v1alpha2 
+kind: Simple 
+name: tufin 
+servers: 3 # same as `--servers 1`
+agents: 1 # same as `--agents 2`
+kubeAPI: 
+ hostIP: "127.0.0.1"
+ hostPort: "6445"
+ports:
+ - port: 8080:80 # same as `--port 8080:80@loadbalancer
+ nodeFilters:
+ - loadbalancer
+options:
+ k3d: 
+   wait: true # wait for cluster to be usable before returining
+   timeout: "60s" # wait timeout before aborting; same as `--timeout 60s`
+ k3s: # options passed on to K3s itself
+   extraServerArgs: # additional arguments passed to the `k3s server` command
+     - --tls-san=my.host.domain
+   extraAgentArgs: [] # addditional arguments passed to the `k3s agent` command
+ kubeconfig:
+   updateDefaultKubeconfig: true # add new cluster to your default Kubeconfig
+   switchCurrentContext: true # also set current-context to the new cluster's context
