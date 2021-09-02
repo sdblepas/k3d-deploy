@@ -5,5 +5,5 @@ this script will install k3d, kubectl and fully functional k3d cluster
 after cloning do 
 ```chmod +x cluster-start.sh```
 
-it will use the config file myk3dcluster.yaml
+It will use the config file myk3dcluster.yaml
 
