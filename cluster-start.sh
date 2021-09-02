@@ -38,6 +38,6 @@ else
 fi
 
 log 'creating cluster'
-k3d cluster create tufin --agents 1 --servers 3 >> log
+k3d cluster create --config myk3dcluster.yaml >> log
 kubectl config view >> log
 
