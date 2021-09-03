@@ -39,6 +39,7 @@ fi
 
 log 'creating cluster'
 k3d cluster create --config myk3dcluster.yaml >> log
+#this part is for bug https://github.com/rancher/k3d/issues/681 should be remove eventually
 LIST=$(kubectl get nodes | grep none | awk '{print $1}')
 for node in $LIST
 do
