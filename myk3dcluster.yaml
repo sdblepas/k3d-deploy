@@ -2,8 +2,8 @@
 apiVersion: k3d.io/v1alpha2 
 kind: Simple 
 name: tufin 
-servers: 3 # same as `--servers 1`
-agents: 1 # same as `--agents 2`
+servers: 1 # same as `--servers 1`
+agents: 2 # same as `--agents 2`
 kubeAPI: 
  hostIP: "127.0.0.1"
  hostPort: "6445"
