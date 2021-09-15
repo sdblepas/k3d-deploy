@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert -f docker-compose.yml
-    kompose.version: 1.24.0 (4a2a0458)
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+    kompose.version: 1.21.0 (992df58d8)
   creationTimestamp: null
   labels:
     io.kompose.service: web
@@ -18,24 +18,26 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert -f docker-compose.yml
-        kompose.version: 1.24.0 (4a2a0458)
+        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+        kompose.version: 1.21.0 (992df58d8)
       creationTimestamp: null
       labels:
         io.kompose.service: web
     spec:
       containers:
-        - image: sdblepas/web:main
-          name: web
-          ports:
-            - containerPort: 5000
-          resources: {}
-          volumeMounts:
-            - mountPath: /home/app/
-              name: web-claim0
+      - image: sdblepas/web:main
+        imagePullPolicy: ""
+        name: web
+        ports:
+        - containerPort: 5000
+        resources: {}
+        volumeMounts:
+        - mountPath: /home/app/
+          name: web-claim0
       restartPolicy: Always
+      serviceAccountName: ""
       volumes:
-        - name: web-claim0
-          persistentVolumeClaim:
-            claimName: web-claim0
+      - name: web-claim0
+        persistentVolumeClaim:
+          claimName: web-claim0
 status: {}
