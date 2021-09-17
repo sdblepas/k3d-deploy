@@ -17,4 +17,6 @@ run ./app-deploy.sh
 
 It will deploy a postgresql DB and a Flask web service
 
+### Known Issue
 
+Flask container not exposed on port 5000
