@@ -26,5 +26,5 @@ kubectl create -f env-configmap.yaml >> log
 kubectl create -f web-claim0-persistentvolumeclaim.yaml >> log
 kubectl apply -f  db-deployment.yaml >> log
 kubectl apply -f  web-deployment.yaml >> log
-kubectl expose deployment web --port=80 --target-port=5000 --type=LoadBalancer >> log
+kubectl apply -f web-svc.yaml
 
