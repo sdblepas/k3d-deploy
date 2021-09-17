@@ -32,12 +32,6 @@ spec:
         - containerPort: 5000
         resources: {}
         volumeMounts:
-        - mountPath: /home/app/
-          name: web-claim0
       restartPolicy: Always
       serviceAccountName: ""
-      volumes:
-      - name: web-claim0
-        persistentVolumeClaim:
-          claimName: web-claim0
 status: {}
